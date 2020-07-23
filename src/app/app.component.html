@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h1 *ngIf="!yesToggle && !noToggle">
+      Do you want to perform some math operations ?
+    </h1>
+    <h1 *ngIf="noToggle">Please Close the Window</h1>
+    <br />
+    <br />
+    <button (click)="onYesClick()" *ngIf="!yesToggle && !noToggle">Yes</button>
+    <button (click)="onNoClick()" *ngIf="!noToggle && !yesToggle">No</button>
+    <button (click)="onClick($event)" *ngIf="!toggle">Logout</button>
+  </div>
+  <div *ngIf="!toggle">
+    <div class="row">
+      <div class="col left" [ngClass]="{ 'col-2': toggle }"></div>
+      <div class="col right"></div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center">Calc</h2>
+    <hr />
+    <div class="text-center">
+      <input type="number" class="text-center" [(ngModel)]="inputValue1" />
+      <select [(ngModel)]="inputValue3">
+        <option>Add</option>
+        <option>Sub</option>
+        <option>Mul</option>
+        <option>Div</option>
+      </select>
+      <input type="number" class="text-center" [(ngModel)]="inputValue2" />
+      <button (click)="onSubmit()">Submit</button>
+    </div>
+    <hr />
+    <div class="text-center" *ngIf="getResult">
+      <h3>{{ getResult.label }} of Two numbers is {{ getResult.value }}</h3>
+    </div>
+  </div>
+  <div *ngIf="toggle && yesToggle">
+    <h2>Please Login</h2>
+    <div class="row" *ngIf="toggle">
+      <div class="col">
+        <app-login (onLogin)="onLogin($event)"></app-login>
+      </div>
+    </div>
+  </div>
+</div>
