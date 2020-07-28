@@ -8,7 +8,6 @@ import { OutputObject } from './output.modal';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Math Operations';
   toggle = true;
   yesToggle = false;
   noToggle = false;
