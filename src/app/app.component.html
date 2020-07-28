@@ -1,14 +1,19 @@
 <div class="container">
+
   <div class="row">
     <h1 *ngIf="!yesToggle && !noToggle">
       Do you want to perform some math operations ?
     </h1>
+
     <h1 *ngIf="noToggle">Please Close the Window</h1>
     <br />
     <br />
     <button (click)="onYesClick()" *ngIf="!yesToggle && !noToggle">Yes</button>
     <button (click)="onNoClick()" *ngIf="!noToggle && !yesToggle">No</button>
     <button (click)="onClick($event)" *ngIf="!toggle">Logout</button>
+  </div>
+  <div class="row">
+    <app-list></app-list>
   </div>
   <div *ngIf="!toggle">
     <div class="row">
